@@ -1,6 +1,6 @@
 
   import { Routes, Route, Link} from 'react-router-dom'
-  import { OutletLayout } from './Layout/OutletLayout'
+  import { OutletLayout } from './Components/Layout/OutletLayout'
   import { Landing } from './Pages/Landing'
   import { About } from './Pages/About'
 

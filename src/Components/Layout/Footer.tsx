@@ -33,8 +33,8 @@ export const Footer = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div >
-          <h1 className="font-semibold text-2xl mb-4">Grace Lumiere</h1>
-          <p className="py-2 text-muted-foreground mb-4">Where grace meets light.</p>
+          <h1 className="font-semibold text-2xl mb-4">Grace Lumière</h1>
+          <p className="py-2 text-muted-foreground mb-4">Because the Moment is Yours.</p>
           <p className=" w-80 text-muted-foreground mb-4 text-sm">Cameroon's premier destination for exquisite bridal gowns and elegant boutique fashion.</p>
         </div>
         <div>

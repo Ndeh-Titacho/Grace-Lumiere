@@ -135,7 +135,7 @@ export const Landing = () => {
       <section className='py-20 container mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='max-w-3xl mx-auto text-center'>
           <h1 className='text-4xl md:text-5xl font-serif font-semibold mb-6 animate-slide-up'>Our Story</h1>
-          <p className='text-lg text-muted-foreground mb-6 leading-relaxed'>Grace Lumiere is Cameroon's premier destination for exquisite bridal gowns and sophisticated boutique fashion. We believe every woman deserves to feel extraordinary, whether it's her wedding day or any special moment in life.</p>
+          <p className='text-lg text-muted-foreground mb-6 leading-relaxed'>Grace Lumière is Cameroon's premier destination for exquisite bridal gowns and sophisticated boutique fashion. We believe every woman deserves to feel extraordinary, whether it's her wedding day or any special moment in life.</p>
           <p className='text-lg text-muted-foreground mb-6 leading-relaxed'>Our curated collections showcase the artistry of skilled designers, ensuring that each piece is a true reflection of elegance and grace.</p>
         </div>
       </section>

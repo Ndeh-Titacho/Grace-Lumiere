@@ -65,7 +65,22 @@ export const NavBar = () => {
             </DropdownMenu>
 
             {/* Boutique Dropdown */}
-            <DropdownMenu>
+             <Link
+              to="/boutique"
+              className={`text-sm font-medium transition-smooth relative group ${
+                isActive("/boutique")
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              Boutique
+              <span
+                className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-smooth ${
+                  isActive("/boutique") ? "w-full" : "w-0 group-hover:w-full"
+                }`}
+              />
+            </Link>
+            {/* <DropdownMenu>
               <DropdownMenuTrigger className="text-sm font-medium transition-smooth text-muted-foreground hover:text-foreground flex items-center gap-1 outline-none">
                 Boutique
                 <ChevronDown className="h-3 w-3" />
@@ -84,7 +99,7 @@ export const NavBar = () => {
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
-            </DropdownMenu>
+            </DropdownMenu> */}
 
             <Link
               to="/about"

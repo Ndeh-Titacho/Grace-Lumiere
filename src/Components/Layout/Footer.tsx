@@ -52,7 +52,7 @@ export const Footer = () => {
             variant="ghost"
             size="icon"
             className="hover:bg-primary/10 hover:text-primary"
-            onClick={() => window.open("","_blank")}>
+            onClick={() => window.open("https://www.instagram.com/grace.lumiere_/","_blank")}>
               <Instagram className="h-5 w-5"/>
             </Button>
 
@@ -60,7 +60,7 @@ export const Footer = () => {
               variant="ghost"
               size="icon"
               className="hover:bg-primary/10 hover:text-primary"
-              onClick={() => window.open("","_blank")}>
+              onClick={() => window.open("https://www.facebook.com/profile.php?id=61575904374609","_blank")}>
               <Facebook className="h-5 w-5"/>
             </Button>
 
@@ -76,7 +76,7 @@ export const Footer = () => {
 
       </div>
       <div className="flex justify-center py-4 border-border border-t text-sm text-muted-foreground">
-        <p>&copy; {currentYear} Grace Lumiere. All rights reserved.</p>
+        <p>&copy; {currentYear} Grace Lumière. All rights reserved.</p>
       </div>
     </footer>
   )

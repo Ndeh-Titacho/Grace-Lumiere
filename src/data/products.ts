@@ -1,9 +1,8 @@
 import type { Product } from "@/types/products";
 
 export const bridalCollections = [
-  { id: "classic", name: "Classic Collection", description: "Timeless elegance for the traditional bride" },
-  { id: "modern", name: "Modern Collection", description: "Contemporary designs for the modern bride" },
-  { id: "romantic", name: "Romantic Collection", description: "Dreamy gowns for the romantic at heart" },
+  { id: "fortitude", name: "Fortitude Collection", description: "Wear the strength of legendary women" },
+  
 ];
 
 export const boutiqueCollections = [
@@ -25,7 +24,7 @@ export const bridalProducts: Product[] = [
     fabricComposition: "100% Polyester with silk lining",
     images: [],
     category: "bridal",
-    collection: "romantic",
+    collection: "fortitude",
   },
   {
     id: "BR002",
@@ -39,7 +38,7 @@ export const bridalProducts: Product[] = [
     fabricComposition: "Silk blend with crystal embellishments",
     images: [],
     category: "bridal",
-    collection: "classic",
+    collection: "fortitude",
   },
   {
     id: "BR003",

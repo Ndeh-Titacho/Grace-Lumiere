@@ -7,6 +7,9 @@
   import { Collection } from './Pages/Collection'
   import { Boutique } from './Pages/Boutique'
   import { ProductDetail } from './Pages/ProductDetail'
+  import { Packages } from './Pages/Packages'
+  import { Consultation } from './Pages/Consultation'
+ import { Toaster } from './Components/ui/sonner'
 
 
   function App() {
@@ -22,11 +25,14 @@
             <Route path='/boutique' element={<Boutique />} />
             <Route path='/collection/:category/:collectionId' element={<Collection />} />
             <Route path='/product/:id' element={<ProductDetail />} />
+            <Route path='/packages' element={<Packages />} />
+            <Route path='/consultation' element={<Consultation />} />
             
           </Route>
 
       </Routes>
       
+      <Toaster />
       </>
     )
   }

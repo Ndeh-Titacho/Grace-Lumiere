@@ -6,31 +6,43 @@ import { useState, useEffect } from 'react'
 import { Button } from '@/Components/ui/button'
 import { Link } from 'react-router-dom'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-
+import { Blurhash } from 'react-blurhash'
 
 
 export const Landing = () => {
 
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [imageLoaded, setImageLoaded] = useState(false)
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = slides[currentSlide].image;
+    img.onload = () => setImageLoaded(true);
+  }, [currentSlide]);
+
 
   const slides = [
     {
       image: F001,
+      blurHash: '',
       title: 'Fortitude Collection - 1',
       description: 'Discover your perfect bridal moment'
     },
     {
       image: F002,
+      blurHash: '',
       title: 'Fortitude Collection - 2',
       description: 'Creating unforgettable memories'
     },
     {
       image: F003,
+      blurHash: '',
       title: 'Fortitude Collection - 3',
       description: 'Embrace elegance and grace'
     },
     {
       image: F004,
+      blurHash: '',
       title: 'Fortitude Collection - 4',
       description: 'Timeless beauty for every moment'
     }
@@ -58,8 +70,20 @@ export const Landing = () => {
             <div
               key={index}
               className={`absolute inset-0 transition-opacity duration-1000 ${currentSlide === index ? 'opacity-100 ' : 'opacity-0'}`}
-            > 
-            <img 
+            >
+            <div>
+              {slide.blurHash && (
+                <Blurhash
+                  hash={slide.blurHash}
+                  width={400}
+                  height={300}
+                  resolutionX={32}
+                  resolutionY={32}
+                  punch={1}
+                />
+              )}
+              </div>
+            <img
              src={slide.image}
              alt={slide.title}
              className='w-full h-full object-cover' />
@@ -134,7 +158,7 @@ export const Landing = () => {
            {/* Our Story */}
       <section className='py-20 container mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='max-w-3xl mx-auto text-center'>
-          <h1 className='text-4xl md:text-5xl font-serif font-semibold mb-6 animate-slide-up'>Our Story</h1>
+          <h1 className='text-4xl md:text-5xl font-serif font-semibold mb-6 animate-slide-up '>Our Story</h1>
           <p className='text-lg text-muted-foreground mb-6 leading-relaxed'>Grace Lumière is Cameroon's premier destination for exquisite bridal gowns and sophisticated boutique fashion. We believe every woman deserves to feel extraordinary, whether it's her wedding day or any special moment in life.</p>
           <p className='text-lg text-muted-foreground mb-6 leading-relaxed'>Our curated collections showcase the artistry of skilled designers, ensuring that each piece is a true reflection of elegance and grace.</p>
         </div>
@@ -155,7 +179,7 @@ export const Landing = () => {
                   alt="Bridal Suite"
                   className="w-full h-96 object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent flex items-end">
                   <div className="p-8 text-white">
                     <h3 className="text-3xl font-serif font-semibold mb-2">Bridal Suite</h3>
                     <p className="text-white/90">Discover your dream wedding gown</p>
@@ -170,7 +194,7 @@ export const Landing = () => {
                   alt="Boutique Collection"
                   className="w-full h-96 object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent flex items-end">
                   <div className="p-8 text-white">
                     <h3 className="text-3xl font-serif font-semibold mb-2">Boutique Collection</h3>
                     <p className="text-white/90">Elegant ready-to-wear pieces</p>

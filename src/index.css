@@ -51,7 +51,7 @@
     --popover-foreground: 25 20% 20%;
 
     /* Peach primary */
-    --primary: 20 95% 80%; /* Peach */
+    --primary: hsl(20 95% 80%); /* Peach */
     --primary-foreground: 25 20% 20%;
     
     /* Blush secondary */
@@ -83,7 +83,7 @@
     
     /* Gradients */
     --gradient-elegant: linear-gradient(135deg, hsl(40 35% 65% / 0.1), hsl(350 50% 90% / 0.1));
-    --gradient-hero: linear-gradient(180deg, hsl(0 0% 0% / 0.3), hsl(0 0% 0% / 0.6));
+    --gradient-hero: linear-gradient(180deg, hsl(var(--primary) / 0.3), hsl(var(--primary) / 0.6));
     
     /* Shadows */
     --shadow-soft: 0 4px 20px -4px hsl(25 20% 20% / 0.08);
@@ -117,8 +117,10 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
+  /* Peach primary */
+  --primary: hsl(20 95% 80%);
+  /* Primary foreground should be warm dark brown for contrast */
+  --primary-foreground: 25 20% 20%;
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
@@ -151,8 +153,9 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
+  /* Peach primary in dark mode - slightly deeper for contrast */
+  --primary: hsl(20 95% 60%);
+  --primary-foreground: 0 0% 98%;
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
@@ -184,5 +187,10 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  /* Hero overlay uses the theme gradient to match the primary color */
+  .hero-overlay {
+    background-image: var(--gradient-hero);
+    @apply pointer-events-none;
   }
 }

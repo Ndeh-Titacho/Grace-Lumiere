@@ -1,4 +1,4 @@
-import type { Product } from "@/types/products"
+import type { itemsType } from "@/hooks/useCollection"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Card } from "./ui/card"
@@ -8,10 +8,10 @@ import { Button } from "./ui/button"
 
 
 interface ProductCardProps {
-    product: Product
+    item: itemsType
 }
 
-export const ProductCard = ({product} : ProductCardProps) => {
+export const ProductCard = ({item} : ProductCardProps) => {
 
     const [isLiked, setIsLiked] = useState(false)
     const navigate = useNavigate()
@@ -22,7 +22,7 @@ export const ProductCard = ({product} : ProductCardProps) => {
     }
 
     const handleCardClick = () => {
-        navigate(`/product/${product.id}`)
+        navigate(`/product/${item.id}`)
     }
 
   return (
@@ -30,8 +30,8 @@ export const ProductCard = ({product} : ProductCardProps) => {
     onClick={handleCardClick}>
         <div className="relative aspect-3/4 overflow-hidden bg-muted">
             <img 
-            src={product.images[0] || logo } 
-            alt={product.name}
+            src={item.images[0] || logo } 
+            alt={item.name}
             className="w-full h-full  group-hover:scale-110 transition-smooth" />
             
             <Button 
@@ -47,19 +47,19 @@ export const ProductCard = ({product} : ProductCardProps) => {
         </div>
         <div className="p-6">
           <h3 className="font-serif font-semibold text-lg mb-2 group-hover:text-primary transition-smooth">
-            {product.name}
+            {item.name}
           </h3>
           <p className="text-muted-foreground text-sm mb-3 line-clamp-2">
-            {product.description}
+            {item.description}
           </p>
           <div className="flex items-center justify-between ">
           <div className="flex flex-col gap-1">
             <p className="text-sm text-muted-foreground">Fabric</p>
-            <p>{product.fabricType}</p>
+            <p>{item.fabric}</p>
 
           </div>
           <p className="text-sm text-muted-foreground">
-            {product.color}
+            {item.colors}
           </p>
           </div>
         </div>

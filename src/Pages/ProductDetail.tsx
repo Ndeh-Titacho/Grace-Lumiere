@@ -1,11 +1,10 @@
 import { useParams, useNavigate } from "react-router-dom"
-import { bridalProducts } from "@/data/products"
-import { boutiqueProducts } from "@/data/products"
 import { useState } from "react"
 import { Button } from "@/Components/ui/button"
 import { ArrowLeft, Heart, MessageCircle } from "lucide-react"
 import { Badge } from "@/Components/ui/badge"
 import { Dialog,DialogContent,DialogDescription,DialogHeader,DialogTitle } from "@/Components/ui/dialog"
+import { useCollection } from "@/hooks/useCollection"
 
 
 
@@ -18,6 +17,7 @@ export const ProductDetail = () => {
     const [selectedImageIndex, setSelectedImageIndex] = useState(0);
     const [selectedPayment, setSelectedPayment] = useState<string | null>(null);
     const [showSizeChart, setShowSizeChart] = useState(false);
+    const { bridalProducts, boutiqueProducts } = useCollection();
 
     // Find products in both collections
     const allProducts = [...bridalProducts, ...boutiqueProducts]
@@ -118,17 +118,17 @@ export const ProductDetail = () => {
                     <div className="grid grid-cols-2 gap-6">
                         <div>
                             <h4 className="font-semibold mb-3">Color</h4>
-                            <Badge variant="secondary" className="text-base px-4 py-2">{product.color}</Badge>
+                            <Badge variant="secondary" className="text-base px-4 py-2">{product.colors}</Badge>
                         </div>
                         <div>
                             <h4 className="font-semibold mb-3">Fabric</h4>
-                            <p className="text-muted-foreground">{product.fabricType}</p>
+                            <p className="text-muted-foreground">{product.fabric}</p>
                         </div>
                     </div>
 
                     <div>
                         <h4 className="font-semibold mb-3">Fabric Composition</h4>
-                        <p className="text-muted-foreground">{product.fabricComposition}</p>
+                        <p className="text-muted-foreground">{product.fabric_composition}</p>
                     </div>
 
                     <div>

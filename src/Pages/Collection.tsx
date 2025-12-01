@@ -1,17 +1,47 @@
-import { bridalProducts, bridalCollections, boutiqueProducts, boutiqueCollections } from "@/data/products"
 import { ProductCard } from "@/Components/ProductCard"
 import { useParams } from "react-router-dom"
-
+import { useCollection } from "@/hooks/useCollection"
 
 export const Collection = () => {
 
-    const { category, collectionId } = useParams<{ category: string; collectionId: string }>()
+   const {  bridalProducts, boutiqueProducts, bridalCollections, boutiqueCollections, isLoading } = useCollection();
+
+    const { category, collectionName } = useParams<{ category: string; collectionName: string }>()
 
     const products = category === "bridal" ? bridalProducts : boutiqueProducts
     const collections = category === "bridal" ? bridalCollections : boutiqueCollections
-    
-    const collection = collections.find((col) => col.id === collectionId)
-    const collectionProducts = products.filter((prod) => prod.collection === collectionId)
+
+    // local slugify to mirror hook's behavior
+    const slugify = (s: string) =>
+      s
+        .toString()
+        .toLowerCase()
+        .trim()
+        .replace(/[^\w\s-]/g, "") // remove non-word chars
+        .replace(/\s+/g, "-"); // replace spaces with hyphens
+
+    // normalize incoming param so it matches slug/id/name forms
+    const paramRaw = collectionName ?? ""
+    const paramDecoded = decodeURIComponent(paramRaw)
+    const paramNormalized = paramDecoded.toString().toLowerCase()
+
+    const collection = collections.find((col) => {
+      // match by id (raw), slug, or normalized name
+      if (!col) return false
+      const slug = col.slug ?? slugify(col.name)
+      return (
+        col.id === paramRaw || // id match
+        slug === paramNormalized || // slug match
+        col.name.toLowerCase() === paramNormalized || // name match
+        slugify(col.name) === paramNormalized // slugify(name) match (redundant, safe)
+      )
+    })
+
+    const collectionProducts = collection ? products.filter((product) => product.collection_id === collection.id) : []
+
+    if (isLoading) {
+        return <div className="min-h-screen flex items-center justify-center">Loading...</div>
+    }
 
     if(!collection){
         return (
@@ -44,7 +74,7 @@ export const Collection = () => {
                 {collectionProducts.length > 0 ? (
                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 m x-4">
                      {collectionProducts.map((product) => (
-                    <ProductCard key={product.id} product={product} />
+                    <ProductCard key={product.id} item={product} />
                 ))}
                 </div>
                 ) : (

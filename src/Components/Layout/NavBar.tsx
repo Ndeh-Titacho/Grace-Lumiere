@@ -3,12 +3,16 @@ import { useState } from "react"
 import logo from "@/assets/grace l .jpg"
 import { Button } from "@/Components/ui/button"
 import { ChevronDown, Heart,Menu, X } from "lucide-react"
-import { bridalCollections, boutiqueCollections } from "@/data/products";
 import { DropdownMenu,DropdownMenuTrigger,DropdownMenuContent,DropdownMenuItem } from "@/Components/ui/dropdown-menu"
+import { useCollection } from "@/hooks/useCollection"
+import type { CollectionsList } from "@/hooks/useCollection"
 
 export const NavBar = () => {
      const location = useLocation()
  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+ const { collections } = useCollection();
+ const bridalCollections  = collections?.filter(collection => collection.is_active && collection.suite_name.toLowerCase().includes("bridal"));
+ const boutiqueCollections  = collections?.filter(collection => collection.is_active && collection.suite_name.toLowerCase().includes("boutique"));  
 
  const isActive = (path: string) => location.pathname === path
   return (
@@ -54,9 +58,12 @@ export const NavBar = () => {
                     View All
                   </Link>
                 </DropdownMenuItem>
-                {bridalCollections.map((collection) => (
+                {bridalCollections?.map((collection) => (
                   <DropdownMenuItem key={collection.id} asChild>
-                    <Link to={`/collection/bridal/${collection.id}`} className="cursor-pointer">
+                    <Link
+                      to={`/collection/bridal/${collection.slug ?? encodeURIComponent(collection.name)}`}
+                      className="cursor-pointer"
+                    >
                       {collection.name}
                     </Link>
                   </DropdownMenuItem>
@@ -93,7 +100,7 @@ export const NavBar = () => {
                 </DropdownMenuItem>
                 {boutiqueCollections.map((collection) => (
                   <DropdownMenuItem key={collection.id} asChild>
-                    <Link to={`/collection/boutique/${collection.id}`} className="cursor-pointer">
+                    <Link to={`/collection/boutique/${collection.name}`} className="cursor-pointer">
                       {collection.name}
                     </Link>
                   </DropdownMenuItem>
@@ -178,10 +185,10 @@ export const NavBar = () => {
                   >
                     View All
                   </Link>
-                  {bridalCollections.map((collection) => (
+                  {bridalCollections?.map((collection: CollectionsList) => (
                     <Link
                       key={collection.id}
-                      to={`/collection/bridal/${collection.id}`}
+                      to={`/collection/bridal/${collection.slug ?? encodeURIComponent(collection.name)}`}
                       onClick={() => setMobileMenuOpen(false)}
                       className="text-sm text-muted-foreground hover:text-foreground"
                     >
@@ -201,16 +208,16 @@ export const NavBar = () => {
                   >
                     View All
                   </Link>
-                  {boutiqueCollections.map((collection) => (
+                  {/* {boutiqueCollections?.map((collection: CollectionsList) => (
                     <Link
                       key={collection.id}
-                      to={`/collection/boutique/${collection.id}`}
+                      to={`/collection/boutique/${collection.name}`}
                       onClick={() => setMobileMenuOpen(false)}
                       className="text-sm text-muted-foreground hover:text-foreground"
                     >
                       {collection.name}
                     </Link>
-                  ))}
+                  ))} */}
                 </div>
               </div>
 

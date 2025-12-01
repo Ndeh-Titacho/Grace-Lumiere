@@ -3,7 +3,7 @@ import F002 from '@/assets/Fortitude Collection/CIC08999.jpg'
 import F003 from '@/assets/Fortitude Collection/CIC09101 (1).jpg'
 import F004 from '@/assets/Fortitude Collection/CIC08993.jpg'
 import { useState, useEffect } from 'react'
-import { bridalProducts } from '@/data/products'
+import { useCollection, type itemsType } from '@/hooks/useCollection'
 import { ProductCard } from '@/Components/ProductCard'
 
 
@@ -11,6 +11,9 @@ import { ProductCard } from '@/Components/ProductCard'
 export const Bridal = () => {
 
     const [currentSlide, setCurrentSlide] = useState(0)
+    const { collections, bridalProducts, isLoading, error } = useCollection();
+
+   
     
       const slides = [
         {
@@ -78,10 +81,10 @@ export const Bridal = () => {
             </div>
 
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-8 pb-20'>
-                {bridalProducts.map((product)=> (
+                {bridalProducts?.map((item: itemsType)=> (
                     <ProductCard 
-                    key={product.id}
-                    product={product}
+                    key={item.id}
+                    item={item}
                     />
                 ))}
             </div>

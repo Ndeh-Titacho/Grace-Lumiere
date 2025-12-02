@@ -22,7 +22,7 @@ export const Consultation = () => {
   });
 
   const consultationFee = "25,000 FCFA";
-  const graceWhatsApp = "+237650000000"; // Grace Lumiere's WhatsApp number
+  const graceWhatsApp = "+237679069107"; // Grace Lumiere's WhatsApp number
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -55,7 +55,7 @@ export const Consultation = () => {
       name: "MTN Mobile Money",
       details: {
         accountName: "Elegance Bridal",
-        number: "+237 6XX XXX XXX",
+        number: "+237 679 069 107",
       },
     },
     {
@@ -63,7 +63,7 @@ export const Consultation = () => {
       name: "Orange Money",
       details: {
         accountName: "Elegance Bridal",
-        number: "+237 6XX XXX XXX",
+        number: "+237 679 069 107",
       },
     },
     {

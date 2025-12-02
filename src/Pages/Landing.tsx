@@ -5,58 +5,108 @@ import F004 from '@/assets/Fortitude Collection/CIC08935.jpg'
 import { useState, useEffect } from 'react'
 import { Button } from '@/Components/ui/button'
 import { Link } from 'react-router-dom'
+import { Star } from 'lucide-react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { Blurhash } from 'react-blurhash'
+import { useCollection, type itemsType } from '@/hooks/useCollection'
 
 
 export const Landing = () => {
 
   const [currentSlide, setCurrentSlide] = useState(0)
   const [imageLoaded, setImageLoaded] = useState(false)
+  const { items, testimonials } = useCollection();
+
+
+
+  // fallback placeholder slide while items are loading / empty
+  const placeholderSlide: itemsType[] = [
+        {
+          id: '1',
+          name: 'Fortitude Collection - 1',
+          description: 'Discover your perfect bridal moment',
+          price: 0,
+          images: [F001],
+          category: '',
+          sizes: [],
+          colors: '',
+          fabric: '',
+          fabric_composition: '',
+          collection_id: ''
+        },
+        {
+          id: '2',
+          name: 'Fortitude Collection - 2',
+          description: 'Creating unforgettable memories',
+          price: 0,
+          images: [F002],
+          category: '',
+          sizes: [],
+          colors: '',
+          fabric: '',
+          fabric_composition: '',
+          collection_id: ''
+        },
+        {
+          id: '3',
+          name: 'Fortitude Collection - 3',
+          description: 'Embrace elegance and grace',
+          price: 0,
+          images: [F003],
+          category: '',
+          sizes: [],
+          colors: '',
+          fabric: '',
+          fabric_composition: '',
+          collection_id: ''
+        },
+        {
+          id: '4',
+          name: 'Fortitude Collection - 4',
+          description: 'Timeless beauty for every moment',
+          price: 0,
+          images: [F004],
+          category: '',
+          sizes: [],
+          colors: '',
+          fabric: '',
+          fabric_composition: '',
+          collection_id: ''
+        }
+      ]
+
+  // ensure we never use an empty slides array in render/effects
+  const slides: itemsType[] = items ?? [];
+  const displaySlides: itemsType[] = slides.length > 0 ? slides : placeholderSlide;
 
   useEffect(() => {
-    const img = new Image();
-    img.src = slides[currentSlide].image;
-    img.onload = () => setImageLoaded(true);
-  }, [currentSlide]);
+    if (displaySlides.length === 0) return;
+    // keep currentSlide in range if slides length changes
+    if (currentSlide >= displaySlides.length) setCurrentSlide(0);
 
-
-  const slides = [
-    {
-      image: F001,
-      blurHash: '',
-      title: 'Fortitude Collection - 1',
-      description: 'Discover your perfect bridal moment'
-    },
-    {
-      image: F002,
-      blurHash: '',
-      title: 'Fortitude Collection - 2',
-      description: 'Creating unforgettable memories'
-    },
-    {
-      image: F003,
-      blurHash: '',
-      title: 'Fortitude Collection - 3',
-      description: 'Embrace elegance and grace'
-    },
-    {
-      image: F004,
-      blurHash: '',
-      title: 'Fortitude Collection - 4',
-      description: 'Timeless beauty for every moment'
+    const src = displaySlides[currentSlide]?.images?.[0];
+    if (!src) {
+      setImageLoaded(false);
+      return;
     }
-  ]
+    setImageLoaded(false);
+    const img = new Image();
+    img.src = src;
+    img.onload = () => setImageLoaded(true);
+    return () => {
+      // cleanup not strictly necessary here, but safe
+    };
+  }, [currentSlide, displaySlides.length]);
 
   useEffect(() => {
+    if (displaySlides.length <= 1) return;
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
+      setCurrentSlide((prev) => (prev + 1) % displaySlides.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [displaySlides.length]);
 
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % displaySlides.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + displaySlides.length) % displaySlides.length);
 
 
 
@@ -66,27 +116,13 @@ export const Landing = () => {
       {/* Hero Section  */}
       <section className='relative h-screen mt-20'>
         <div className='absolute inset-0'>
-          {slides.map((slide, index ) => (
+          {displaySlides.map((slide, index ) => (
             <div
               key={index}
               className={`absolute inset-0 transition-opacity duration-1000 ${currentSlide === index ? 'opacity-100 ' : 'opacity-0'}`}
             >
-            <div>
-              {slide.blurHash && (
-                <Blurhash
-                  hash={slide.blurHash}
-                  width={400}
-                  height={300}
-                  resolutionX={32}
-                  resolutionY={32}
-                  punch={1}
-                />
-              )}
-              </div>
-            <img
-             src={slide.image}
-             alt={slide.title}
-             className='w-full h-full object-cover' />
+          
+            <img src={slide.images?.[0] ?? F001} alt={slide.name} className='w-full h-full object-cover' />
             <div className="absolute inset-0 hero-overlay" />
             </div>
           ))}
@@ -96,10 +132,10 @@ export const Landing = () => {
         <div className='relative h-full flex items-center justify-center text-center px-4'>
           <div className='max-w-4xl '>
             <h1 className='text-5xl md:text-7xl font-serif font-bold text-white mb-6 drop-shadow-lg'>
-              {slides[currentSlide].title}
+              {displaySlides[currentSlide]?.name}
             </h1>
             <p className='text-xl md:text-2xl text-white/90 mb-8 drop-shadow-md'>
-              {slides[currentSlide].description}
+              {displaySlides[currentSlide]?.description}
             </p>
             <div className='flex flex-col md:flex-row justify-center gap-2'>
               <Button
@@ -179,7 +215,7 @@ export const Landing = () => {
                   alt="Bridal Suite"
                   className="w-full h-96 object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent flex items-end">
+                <div className="absolute inset-0 bg-linear-to-t from-primary/60 to-transparent flex items-end">
                   <div className="p-8 text-white">
                     <h3 className="text-3xl font-serif font-semibold mb-2">Bridal Suite</h3>
                     <p className="text-white/90">Discover your dream wedding gown</p>
@@ -194,7 +230,7 @@ export const Landing = () => {
                   alt="Boutique Collection"
                   className="w-full h-96 object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent flex items-end">
+                <div className="absolute inset-0 bg-linear-to-t from-primary/60 to-transparent flex items-end">
                   <div className="p-8 text-white">
                     <h3 className="text-3xl font-serif font-semibold mb-2">Boutique Collection</h3>
                     <p className="text-white/90">Elegant ready-to-wear pieces</p>
@@ -203,6 +239,29 @@ export const Landing = () => {
               </div>
             </Link>
           </div>
+        </div>
+      </section>
+
+        {/* Testimonials */}
+      <section className="py-20 container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-4xl md:text-5xl font-serif font-semibold text-center mb-12">
+          What Our Clients Say
+        </h2>
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {testimonials.map((testimonial, index) => (
+            <div
+              key={index}
+              className="bg-card p-8 rounded-lg shadow-soft hover:shadow-elegant transition-smooth"
+            >
+              <div className="flex gap-1 mb-4">
+                {[...Array(testimonial.rating)].map((_, i) => (
+                  <Star key={i} className="h-5 w-5 fill-primary text-primary" />
+                ))}
+              </div>
+              <p className="text-muted-foreground mb-4 italic">"{testimonial.review_text}"</p>
+              <p className="font-semibold">{testimonial.client_name}</p>
+            </div>
+          ))}
         </div>
       </section>
     </div>

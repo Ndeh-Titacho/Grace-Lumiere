@@ -9,7 +9,9 @@ export interface CollectionContextType {
     bridalProducts: itemsType[];             // changed: always array
     boutiqueProducts: itemsType[];  
     bridalCollections: CollectionsList[];   // changed: always array
-    boutiqueCollections: CollectionsList[]; // changed: always array
+    boutiqueCollections: CollectionsList[]; 
+    packages: packagesType[]; 
+    testimonials: testimonialsType[];  // changed: always array
 }
 
 export interface CollectionsList {
@@ -40,6 +42,29 @@ export interface itemsType {
 
 }
 
+export interface packagesType {
+    name: string;
+    id: string;
+    price: number;
+    description: string;
+    features: string[];
+    pdf_url: string;
+    display_order: number;
+    is_active: boolean;
+    package_name: string;
+    download_link: string;
+    is_popular: boolean;
+
+}
+
+export interface testimonialsType {
+    client_name: string;
+    review_text: string;
+    rating: number;
+    id: string;
+    
+}
+
 export const CollectionContext = createContext<CollectionContextType | undefined>(undefined);
 
 export const CollectionProvider = ({ children }: { children: React.ReactNode }) => {
@@ -49,7 +74,9 @@ export const CollectionProvider = ({ children }: { children: React.ReactNode }) 
     const [isLoading,setIsLoading] = useState<boolean>(false)
     const [error,setError] = useState<string | null>(null)
     const [collections, setCollections] = useState<CollectionsList[]>([])    
-    const [items, setItems] = useState<itemsType[]>([]);                   
+    const [items, setItems] = useState<itemsType[]>([]);         
+    const [packages, setPackages] = useState<packagesType[]>([]);     
+    const [testimonials, setTestimonials] = useState<testimonialsType[]>([]);
 
     const bridalProducts = items.filter(item => item.category === 'bridal'); 
     const boutiqueProducts = items.filter(item => item.category === 'boutique');
@@ -61,13 +88,15 @@ export const CollectionProvider = ({ children }: { children: React.ReactNode }) 
     useEffect(() => {
         getCollections();
         getItems();
+        getPackages();
+        getTestimonials();
        
     }, []);
 
     const getCollections = async () => {
         setIsLoading(true);
         try {
-            const response = await axios.get('http://192.168.1.162:8000/api/v1/collections/')
+            const response = await axios.get('http://192.168.1.159:8000/api/v1/collections/')
             // attach slug to each collection for routes
             const withSlugs: CollectionsList[] = (response.data || []).map((col: CollectionsList) => ({
               ...col,
@@ -89,7 +118,7 @@ export const CollectionProvider = ({ children }: { children: React.ReactNode }) 
     const getItems = async () => {
         setIsLoading(true);
         try {
-            const response = await axios.get('http://192.168.1.162:8000/api/v1/items/')
+            const response = await axios.get('http://192.168.1.159:8000/api/v1/items/')
             setItems(response.data);
             console.log("Items\n",response.data);
             
@@ -103,6 +132,40 @@ export const CollectionProvider = ({ children }: { children: React.ReactNode }) 
 
     }
 
+
+    const getPackages = async () => {
+        setIsLoading(true);
+        try {
+            const response = await axios.get('http://192.168.1.159:8000/api/v1/packages/')
+            setPackages(response.data);
+            console.log("Packages\n",response.data);
+            
+        } catch (error: any) {
+            setError("Failed to fetch packages");
+            console.error(error);
+            
+        }finally{
+            setIsLoading(false);
+        }
+
+    }
+
+    const getTestimonials = async () => {
+        setIsLoading(true);
+        try {
+            const response = await axios.get('http://192.168.1.159:8000/api/v1/testimonials/')
+            setTestimonials(response.data);
+            console.log("Testimonials\n",response.data);
+            
+        } catch (error: any) {
+            setError("Failed to fetch testimonials");
+            console.error(error);
+            
+        }finally{
+            setIsLoading(false);
+        }
+    }
+
     const slugify = (s: string) =>
       s
         .toString()
@@ -112,7 +175,7 @@ export const CollectionProvider = ({ children }: { children: React.ReactNode }) 
         .replace(/\s+/g, "-"); // replace spaces with hyphens
 
 return (
-    <CollectionContext.Provider value={{ collections,items, bridalProducts, boutiqueProducts, bridalCollections, boutiqueCollections, isLoading, error }}>
+    <CollectionContext.Provider value={{ collections,items, bridalProducts, boutiqueProducts, bridalCollections, boutiqueCollections, packages, testimonials, isLoading, error }}>
         {children}
     </CollectionContext.Provider>
 )

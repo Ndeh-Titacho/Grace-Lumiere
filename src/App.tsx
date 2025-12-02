@@ -31,7 +31,7 @@ import { Routes, Route} from 'react-router-dom'
 
       </Routes>
       
-      <Toaster />
+      <Toaster position='top-center' />
       </>
     )
   }

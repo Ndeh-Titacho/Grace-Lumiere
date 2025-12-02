@@ -1,79 +1,102 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/Components/ui/card";
 import { Check,Download } from "lucide-react";
 import { Button } from "@/Components/ui/button";
+import { useCollection } from "@/hooks/useCollection";
+import { toast } from "sonner";
 
 
 export const Packages = () => {
 
-     const packages = [
-    {
-      id: 1,
-      name: "Bridal Essentials",
-      price: "750,000 FCFA",
-      description: "Perfect for the minimalist bride",
-      features: [
-        "Wedding gown of your choice",
-        "Bridal veil",
-        "Basic alterations (2 fittings)",
-        "Complimentary pressing",
-        "Basic consultation (30 minutes)",
-      ],
-      pdfUrl: "/packages/bridal-essentials.pdf",
-    },
-    {
-      id: 2,
-      name: "Bridal Luxury",
-      price: "1,250,000 FCFA",
-      description: "Complete bridal experience",
-      features: [
-        "Wedding gown of your choice",
-        "Bridal veil and accessories",
-        "Premium alterations (4 fittings)",
-        "Complimentary pressing and packaging",
-        "Extended consultation (1 hour)",
-        "Bridesmaid dress coordination (up to 3 dresses)",
-        "Post-wedding dress cleaning",
-      ],
-      pdfUrl: "/packages/bridal-luxury.pdf",
-      popular: true,
-    },
-    {
-      id: 3,
-      name: "Boutique Collection",
-      price: "350,000 FCFA",
-      description: "Elegant ready-to-wear package",
-      features: [
-        "3 ready-to-wear dresses",
-        "Basic alterations (1 fitting per dress)",
-        "Styling consultation (30 minutes)",
-        "Complimentary pressing",
-        "Seasonal discount voucher (10%)",
-      ],
-      pdfUrl: "/packages/boutique-collection.pdf",
-    },
-    {
-      id: 4,
-      name: "VIP Wardrobe",
-      price: "1,500,000 FCFA",
-      description: "Ultimate styling experience",
-      features: [
-        "5 custom-selected pieces",
-        "Personal styling session (2 hours)",
-        "Premium alterations (unlimited fittings)",
-        "Exclusive access to new collections",
-        "Private shopping appointments",
-        "Seasonal wardrobe refresh consultation",
-        "Complimentary storage for 6 months",
-      ],
-      pdfUrl: "/packages/vip-wardrobe.pdf",
-    },
-  ];
+  const { packages } = useCollection(); 
 
-  const handleDownload = (pdfUrl: string, packageName: string) => {
-    // In production, this would download the actual PDF
-    console.log(`Downloading ${packageName} package details from ${pdfUrl}`);
-    alert(`Download feature coming soon! Package: ${packageName}`);
-  };
+
+  //    const packages = [
+  //   {
+  //     id: 1,
+  //     name: "Bridal Essentials",
+  //     price: "750,000 FCFA",
+  //     description: "Perfect for the minimalist bride",
+  //     features: [
+  //       "Wedding gown of your choice",
+  //       "Bridal veil",
+  //       "Basic alterations (2 fittings)",
+  //       "Complimentary pressing",
+  //       "Basic consultation (30 minutes)",
+  //     ],
+  //     pdfUrl: "/packages/bridal-essentials.pdf",
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "Bridal Luxury",
+  //     price: "1,250,000 FCFA",
+  //     description: "Complete bridal experience",
+  //     features: [
+  //       "Wedding gown of your choice",
+  //       "Bridal veil and accessories",
+  //       "Premium alterations (4 fittings)",
+  //       "Complimentary pressing and packaging",
+  //       "Extended consultation (1 hour)",
+  //       "Bridesmaid dress coordination (up to 3 dresses)",
+  //       "Post-wedding dress cleaning",
+  //     ],
+  //     pdfUrl: "/packages/bridal-luxury.pdf",
+  //     popular: true,
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "Boutique Collection",
+  //     price: "350,000 FCFA",
+  //     description: "Elegant ready-to-wear package",
+  //     features: [
+  //       "3 ready-to-wear dresses",
+  //       "Basic alterations (1 fitting per dress)",
+  //       "Styling consultation (30 minutes)",
+  //       "Complimentary pressing",
+  //       "Seasonal discount voucher (10%)",
+  //     ],
+  //     pdfUrl: "/packages/boutique-collection.pdf",
+  //   },
+  //   {
+  //     id: 4,
+  //     name: "VIP Wardrobe",
+  //     price: "1,500,000 FCFA",
+  //     description: "Ultimate styling experience",
+  //     features: [
+  //       "5 custom-selected pieces",
+  //       "Personal styling session (2 hours)",
+  //       "Premium alterations (unlimited fittings)",
+  //       "Exclusive access to new collections",
+  //       "Private shopping appointments",
+  //       "Seasonal wardrobe refresh consultation",
+  //       "Complimentary storage for 6 months",
+  //     ],
+  //     pdfUrl: "/packages/vip-wardrobe.pdf",
+  //   },
+  // ];
+
+  const handleDownload = (packageName: string, pdfUrl?: string) => {
+    // Handle cases where the URL is missing
+    if (!pdfUrl) {
+      toast.info(`No PDF available for package: ${packageName}`);
+      return;
+    }
+
+    toast.info(`Downloading ${packageName} package details`);
+
+    // Create a temporary anchor element in memory
+    const link = document.createElement('a');
+    link.href = pdfUrl; 
+    link.download = `${packageName}.pdf`;
+    // Append the link to the body (not strictly required for all browsers,
+    // but good practice to ensure the element exists in the DOM when clicked)
+    document.body.appendChild(link);
+
+    //  Simulate a click on the link to start the download
+    link.click();
+
+    // Clean up: remove the element from the DOM after the click
+    document.body.removeChild(link);
+};
 
   return (
     <div className="min-h-screen">
@@ -94,10 +117,10 @@ export const Packages = () => {
                 <Card
                 key={pkg.id}
                 className={`relative overflow-hidden transition-smooth hover:shadow-elegant ${
-                pkg.popular ? "border-primary border-2" : ""
+                pkg.is_popular ? "border-primary border-2" : ""
               }`}
                 >
-                     {pkg.popular && (
+                     {pkg.is_popular && (
                 <div className="absolute top-4 right-4 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold">
                   Most Popular
                 </div>
@@ -120,9 +143,9 @@ export const Packages = () => {
                     ))}
                 </div>
                 <Button
-                onClick={() => handleDownload(pkg.pdfUrl, pkg.name)}
+                onClick={() => handleDownload(pkg.name, pkg.pdf_url)}
                 className="w-full"
-                variant={pkg.popular ? "default" : "outline"}
+                variant={pkg.is_popular ? "default" : "outline"}
                 >
                 <Download className="mr-2 h-4 w-4" />
                 Download Package Details (PDF)

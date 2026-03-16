@@ -96,7 +96,7 @@ export const CollectionProvider = ({ children }: { children: React.ReactNode }) 
     const getCollections = async () => {
         setIsLoading(true);
         try {
-            const response = await axios.get('http://192.168.1.159:8000/api/v1/collections/')
+            const response = await axios.get(`${BASE_URL}/collections/`)
             // attach slug to each collection for routes
             const withSlugs: CollectionsList[] = (response.data || []).map((col: CollectionsList) => ({
               ...col,
@@ -118,7 +118,7 @@ export const CollectionProvider = ({ children }: { children: React.ReactNode }) 
     const getItems = async () => {
         setIsLoading(true);
         try {
-            const response = await axios.get('http://192.168.1.159:8000/api/v1/items/')
+            const response = await axios.get(`${BASE_URL}/items/`)
             setItems(response.data);
             console.log("Items\n",response.data);
             
@@ -136,7 +136,7 @@ export const CollectionProvider = ({ children }: { children: React.ReactNode }) 
     const getPackages = async () => {
         setIsLoading(true);
         try {
-            const response = await axios.get('http://192.168.1.159:8000/api/v1/packages/')
+            const response = await axios.get(`${BASE_URL}/packages/`)
             setPackages(response.data);
             console.log("Packages\n",response.data);
             
@@ -153,7 +153,7 @@ export const CollectionProvider = ({ children }: { children: React.ReactNode }) 
     const getTestimonials = async () => {
         setIsLoading(true);
         try {
-            const response = await axios.get('http://192.168.1.159:8000/api/v1/testimonials/')
+            const response = await axios.get(`${BASE_URL}/testimonials/`)
             setTestimonials(response.data);
             console.log("Testimonials\n",response.data);
             

@@ -84,7 +84,7 @@ export const Consultation = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
           {/* Header */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">
+            <h1 className="text-4xl md:text-5xl font-roboto font-bold mb-4">
               Book A Consultation
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">

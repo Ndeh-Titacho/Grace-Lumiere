@@ -16,6 +16,15 @@ export const Landing = () => {
   const [imageLoaded, setImageLoaded] = useState(false)
   const { items, testimonials } = useCollection();
 
+  // limit description to first 10 words
+const getShortDescription = (text: string, wordLimit = 10) => {
+  if (!text) return "";
+  const words = text.split(" ");
+  if (words.length <= wordLimit) return text;
+  return words.slice(0, wordLimit).join(" ") + "...";
+};
+
+
 
 
   // fallback placeholder slide while items are loading / empty
@@ -111,7 +120,7 @@ export const Landing = () => {
 
 
   return (
-    <div className='min-h-screen'>
+    <div className='min-h-screen font-roboto'>
 
       {/* Hero Section  */}
       <section className='relative h-screen mt-20'>
@@ -131,11 +140,11 @@ export const Landing = () => {
         {/* Hero Content */}
         <div className='relative h-full flex items-center justify-center text-center px-4'>
           <div className='max-w-4xl '>
-            <h1 className='text-5xl md:text-7xl font-serif font-bold text-white mb-6 drop-shadow-lg'>
+            <h1 className='text-5xl md:text-7xl font-roboto font-bold text-black mb-6 drop-shadow-lg'>
               {displaySlides[currentSlide]?.name}
             </h1>
-            <p className='text-xl md:text-2xl text-white/90 mb-8 drop-shadow-md'>
-              {displaySlides[currentSlide]?.description}
+            <p className='text-xl md:text-2xl text-black/80 mb-8 drop-shadow-md'>
+              {getShortDescription(displaySlides[currentSlide]?.description) }
             </p>
             <div className='flex flex-col md:flex-row justify-center gap-2'>
               <Button
@@ -149,7 +158,7 @@ export const Landing = () => {
                 size="lg"
                 variant="outline"
                 asChild
-                className="border-white text-white  bg-white/10 backdrop-blur-sm font-medium"
+                className="border-white text-black  bg-white/10 backdrop-blur-sm font-medium"
               >
                 <Link to="/boutique">Shop Boutique</Link>
               </Button>
@@ -194,7 +203,7 @@ export const Landing = () => {
            {/* Our Story */}
       <section className='py-20 container mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='max-w-3xl mx-auto text-center'>
-          <h1 className='text-4xl md:text-5xl font-serif font-semibold mb-6 animate-slide-up '>Our Story</h1>
+          <h1 className='text-4xl md:text-5xl font-semibold mb-6 animate-slide-up '>Our Story</h1>
           <p className='text-lg text-muted-foreground mb-6 leading-relaxed'>Grace Lumière is Cameroon's premier destination for exquisite bridal gowns and sophisticated boutique fashion. We believe every woman deserves to feel extraordinary, whether it's her wedding day or any special moment in life.</p>
           <p className='text-lg text-muted-foreground mb-6 leading-relaxed'>Our curated collections showcase the artistry of skilled designers, ensuring that each piece is a true reflection of elegance and grace.</p>
         </div>
@@ -204,7 +213,7 @@ export const Landing = () => {
       {/* Featured Collections */}
       <section className="py-20 bg-muted">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-5xl font-serif font-semibold text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-semibold text-center mb-12">
             Featured Collections
           </h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
@@ -217,7 +226,7 @@ export const Landing = () => {
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-primary/60 to-transparent flex items-end">
                   <div className="p-8 text-white">
-                    <h3 className="text-3xl font-serif font-semibold mb-2">Bridal Suite</h3>
+                    <h3 className="text-3xl font-semibold mb-2">Bridal Suite</h3>
                     <p className="text-white/90">Discover your dream wedding gown</p>
                   </div>
                 </div>
@@ -232,7 +241,7 @@ export const Landing = () => {
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-primary/60 to-transparent flex items-end">
                   <div className="p-8 text-white">
-                    <h3 className="text-3xl font-serif font-semibold mb-2">Boutique Collection</h3>
+                    <h3 className="text-3xl font-semibold mb-2">Boutique Collection</h3>
                     <p className="text-white/90">Elegant ready-to-wear pieces</p>
                   </div>
                 </div>
@@ -244,7 +253,7 @@ export const Landing = () => {
 
         {/* Testimonials */}
       <section className="py-20 container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl md:text-5xl font-serif font-semibold text-center mb-12">
+        <h2 className="text-4xl md:text-5xl  font-semibold text-center mb-12">
           What Our Clients Say
         </h2>
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">

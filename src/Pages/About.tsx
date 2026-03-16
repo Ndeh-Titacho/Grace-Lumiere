@@ -7,12 +7,12 @@ export const About = () => {
     <div className="min-h-screen flex flex-col items-center pt-20">
       
       <section className="max-w-3xl text-center py-16 px-4 sm:px-6 lg:px-8 bg-gradient-subtle">
-        <h1 className="text-5xl font-bold font-serif">About  Grace Lumière</h1>
+        <h1 className="text-5xl font-bold font-roboto">About  Grace Lumière</h1>
         <p className="py-2 text-muted-foreground mb-4 text-xl">Because the Moment is Yours.</p>
       </section>
 
       <section className="w-full max-w-4xl text-left py-4 px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-bold font-serif items-start ">Our Story</h1>
+        <h1 className="text-3xl font-bold font-roboto items-start ">Our Story</h1>
         <p className="text-muted-foreground mb-4 text-lg">Grace Lumiere was born from a passion for celebrating the beauty and elegance of African women. <br />
         Founded with a vision to provide exquisite bridal and evening wear, we understand that every moment deserves to be memorable.</p>
 
@@ -22,7 +22,7 @@ export const About = () => {
       {/* Values Section */}
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
           <div className="container mx-auto max-w-6xl">
-            <h2 className="text-3xl font-serif font-semibold text-foreground mb-12 text-center">
+            <h2 className="text-3xl font-roboto font-semibold text-foreground mb-12 text-center">
               Our Values
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
@@ -68,7 +68,7 @@ export const About = () => {
         {/* Contact Section */}
         <section className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="container mx-auto max-w-4xl text-center">
-            <h2 className="text-3xl font-serif font-semibold text-foreground mb-6">
+            <h2 className="text-3xl font-robotofont-semibold text-foreground mb-6">
               Visit Us
             </h2>
             <p className="text-lg text-muted-foreground mb-8">

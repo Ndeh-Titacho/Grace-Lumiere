@@ -47,7 +47,7 @@ export const Collection = () => {
         return (
             <div  className="min-h-screen">
                 <div className="cointainer mx-auto px-4 py-40 text-center">
-                    <h1 className="text-3xl font-serif font-semibold">Collection not found!</h1>
+                    <h1 className="text-3xl font-roboto font-semibold">Collection not found!</h1>
                 </div>
             </div>
         )
@@ -59,7 +59,7 @@ export const Collection = () => {
         {/* Hero Section */}
         <section className="pt-32 pb-16 bg-muted">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h1 className="text-5xl font-serif font-bold mb-4 animate-fade-in">
+                <h1 className="text-5xl font-roboto font-bold mb-4 animate-fade-in">
                     {collection.name}
                 </h1>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-in">

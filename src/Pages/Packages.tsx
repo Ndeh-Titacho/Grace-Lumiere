@@ -103,7 +103,7 @@ export const Packages = () => {
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 mt-20">
             <div className="text-center mb-16">
-                <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6">
+                <h1 className="text-5xl md:text-6xl font-roboto font-bold mb-6">
                     Explore Our Packages
                 </h1>
                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -127,7 +127,7 @@ export const Packages = () => {
               )}
 
               <CardHeader>
-                <CardTitle className="text-3xl font-serif">{pkg.name}</CardTitle>
+                <CardTitle className="text-3xl font-roboto">{pkg.name}</CardTitle>
                 <CardDescription className="text-base">{pkg.description}</CardDescription>
                 <div className="pt-4">
                     <p className="text-4xl font-bold text-primary">{pkg.price}</p>
@@ -157,7 +157,7 @@ export const Packages = () => {
             </div>
 
              <div className="mt-16 text-center bg-muted rounded-lg p-8 max-w-4xl mx-auto">
-          <h3 className="text-2xl font-serif font-semibold mb-4">
+          <h3 className="text-2xl font-roboto font-semibold mb-4">
             Need a Custom Package?
           </h3>
           <p className="text-muted-foreground mb-6">

@@ -1,5 +1,6 @@
 import { Button } from "@/Components/ui/button"
 import { Instagram, Facebook, MessageCircle} from "lucide-react"
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
 
@@ -7,11 +8,11 @@ export const Footer = () => {
 
 
   return (
-    <footer className="bottom-0 left-0 right-0 bg-muted">
+    <footer className="bottom-0 left-0 right-0 bg-muted font-roboto">
        {/* CTA Section */}
-      <div className="bg-gradient-to-r from-champagne/20 to-blush/20 py-16">
+      <div className="bg-linear-to-r from-champagne/20 to-blush/20 py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-serif font-semibold mb-4">
+          <h2 className="text-3xl md:text-4xl  font-semibold mb-4">
             Book A Consultation
           </h2>
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -22,10 +23,10 @@ export const Footer = () => {
             size="lg"
             className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium shadow-elegant"
           >
-            <a href="/consultation">
+            <Link to="/consultation">
               <MessageCircle className="mr-2 h-5 w-5" />
               Book Now
-            </a>
+            </Link>
           </Button>
         </div>
       </div>
@@ -40,9 +41,9 @@ export const Footer = () => {
         <div>
           <h3 className="font-semibold text-xl mb-4">Quick Links</h3>
           <ul className="flex-col space-y-2">
-            <li><a href="#Bridal" className="text-muted-foreground">Bridal Suite</a></li>
-            <li><a href="#boutique" className="text-muted-foreground">Boutique Collections</a></li>
-            <li><a href="#contact" className="text-muted-foreground">Contact</a></li>
+            <li><Link to="/bridal" className="text-muted-foreground">Bridal Suite</Link></li>
+            <li><Link to="/boutique" className="text-muted-foreground">Boutique Collections</Link></li>
+            <li><Link to="/about" className="text-muted-foreground">About</Link></li>
           </ul>
         </div>
         <div>
@@ -67,7 +68,8 @@ export const Footer = () => {
             <Button
               variant="ghost"
               size="icon"
-              className="hover:bg-primary/10 hover:text-primary">
+              className="hover:bg-primary/10 hover:text-primary"
+              onClick={() => window.open("https://www.tiktok.com/@grace.lumiere24?_r=1&_t=ZM-91sViHNsAjA","_blank")}>
               <MessageCircle className="h-5 w-5"/>
             </Button>
           </div>

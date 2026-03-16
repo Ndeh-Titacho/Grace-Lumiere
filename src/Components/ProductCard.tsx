@@ -26,7 +26,7 @@ export const ProductCard = ({item} : ProductCardProps) => {
     }
 
   return (
-    <Card className="group cursor-pointer overflow-hidden border-border hover:shadow-elegant transition-smooth"
+    <Card className="group cursor-pointer overflow-hidden border-border hover:shadow-elegant transition-smooth font-roboto"
     onClick={handleCardClick}>
         <div className="relative aspect-3/4 overflow-hidden bg-muted">
             <img 
@@ -46,7 +46,7 @@ export const ProductCard = ({item} : ProductCardProps) => {
             
         </div>
         <div className="p-6">
-          <h3 className="font-serif font-semibold text-lg mb-2 group-hover:text-primary transition-smooth">
+          <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-smooth">
             {item.name}
           </h3>
           <p className="text-muted-foreground text-sm mb-3 line-clamp-2">

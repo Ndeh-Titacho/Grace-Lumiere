@@ -27,7 +27,7 @@ export const ProductDetail = () => {
         return (
             <div className="min-h-screen">
                 <div className="container mx-auto px-4 py-20 mt-20 text-center">
-                    <h1 className="text-4xl font-serif mb-4">Product Not Found</h1>
+                    <h1 className="text-4xl font-roboto mb-4">Product Not Found</h1>
                     <Button onClick={() => navigate(-1)}>Go Back</Button>
                 </div>
             </div>
@@ -104,10 +104,10 @@ export const ProductDetail = () => {
                 {/* Product Details */}
                 <div className="space-y-8">
                     <div>
-                        <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">
+                        <h1 className="text-4xl md:text-5xl font-roboto font-bold mb-4">
                             {product.name}
                         </h1>
-                        <p className="text-sm text-muted-foreground mb-2">Product ID: {product.id}</p>
+                        {/* <p className="text-sm text-muted-foreground mb-2">Product ID: {product.id}</p> */}
                     </div>
 
                     <div>
@@ -157,7 +157,7 @@ export const ProductDetail = () => {
                             ))}
                         </div>
                     </div>
-                     <div className="bg-muted p-6 rounded-lg">
+                     {/* <div className="bg-muted p-6 rounded-lg">
               <h4 className="font-semibold mb-4">Payment Options</h4>
               <div className="space-y-2">
                 <Button
@@ -182,7 +182,7 @@ export const ProductDetail = () => {
                   • Bank Transfer
                 </Button>
               </div>
-            </div>
+            </div> */}
 
                <Button
               onClick={handleWhatsAppEnquiry}

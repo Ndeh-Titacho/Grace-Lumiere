@@ -66,7 +66,7 @@ export const Bridal = () => {
 
 
             {/* Hero Content */}
-            <div className='relative flex flex-col items-center justify-center h-full text-white'>
+            <div className='relative flex flex-col items-center justify-center h-full text-black'>
                 <h1 className='text-5xl md:text-7xl font-bold drop-shadow-lg'>Bridal Suite</h1>
                 <p className='text-xl md:text-2xl drop-shadow-lg'>Discover exquisite gowns for your special day</p>
             </div>
@@ -75,7 +75,7 @@ export const Bridal = () => {
 
         <section>
             <div className='container py-20 mx-auto px-4 sm:px-6 lg:px-8 text-center '>
-                <h1 className='text-4xl md:text-5xl font-serif font-semibold text-center mb-8'>Our Gowns</h1>
+                <h1 className='text-4xl md:text-5xl font-roboto font-semibold text-center mb-8'>Our Gowns</h1>
                 <p className='text-lg text-muted-foreground mb-6 leading-relaxed'> Each dress is carefully crafted to make your wedding day unforgettable. <br />Click on any gown to view details and make an enquiry.
                 </p>
             </div>

@@ -76,7 +76,9 @@ export const About = () => {
             </p>
             <div className="space-y-2 text-muted-foreground">
               <p>WhatsApp: +237 6 79 06 91 07</p>
-              <Link to="/appointment" className="underline">Open by appointment</Link>
+              <Link to="/appointment" className="underline" onClick={() => { window.open("https://wa.me/237679069107","_blank")}}>
+                Open by appointment
+              </Link>
             </div>
           </div>
         </section>

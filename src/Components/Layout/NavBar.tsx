@@ -23,8 +23,9 @@ export const NavBar = () => {
           <Link to="/" className="flex items-center group">
             <img 
               src={logo} 
+              sizes="100"
               alt="Grace Lumiere" 
-              className=" h-12 sm:h-14 w-auto object-contain transition-smooth group-hover:opacity-80"
+              className="h-20 sm:h-20 w-auto object-contain transition-smooth group-hover:opacity-80"
             />
           </Link>
 
@@ -140,6 +141,7 @@ export const NavBar = () => {
               />
             </Link>
 
+          {/* Like heart icon  */}
             <Button variant="ghost" size="icon" className="relative">
               <Heart className="h-5 w-5" />
               <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-primary text-primary-foreground text-xs flex items-center justify-center">

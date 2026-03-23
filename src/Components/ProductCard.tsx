@@ -41,7 +41,7 @@ export const ProductCard = ({item} : ProductCardProps) => {
             className={`absolute top-4 right-4 bg-white/80 backdrop-blur-sm hover:bg-white transition-smooth ${
             isLiked ? "text-red-500" : "text-muted-foreground"
           }`}>
-            <Heart />
+            <Heart className={ isLiked ? "fill-current" : "" } />
             </Button>
             
         </div>

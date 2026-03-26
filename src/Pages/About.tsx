@@ -7,12 +7,12 @@ export const About = () => {
     <div className="min-h-screen flex flex-col items-center pt-20 font-antic font-extralight">
       
       <section className="max-w-3xl text-center py-16 px-4 sm:px-6 lg:px-8 bg-gradient-subtle">
-        <h1 className="text-5xl font-bold font-light">About  Grace Lumière</h1>
+        <h1 className="text-5xl font-light">About  Grace Lumière</h1>
         <p className="py-2 text-muted-foreground mb-4 text-xl">Because the Moment is Yours.</p>
       </section>
 
       <section className="w-full max-w-4xl text-left py-4 px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-bold font-light items-start ">Our Story</h1>
+        <h1 className="text-3xl font-light items-start ">Our Story</h1>
         <p className="text-muted-foreground mb-4 text-lg">Grace Lumiere was born from a passion for celebrating the beauty and elegance of African women. <br />
         Founded with a vision to provide exquisite bridal and evening wear, we understand that every moment deserves to be memorable.</p>
 

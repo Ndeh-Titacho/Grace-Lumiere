@@ -54,15 +54,15 @@ export const Collection = () => {
     }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen font-antic font-extralight">
 
         {/* Hero Section */}
         <section className="pt-32 pb-16 bg-muted">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h1 className="text-5xl font-roboto font-bold mb-4 animate-fade-in">
+                <h1 className="text-5xl font-light mb-4 animate-fade-in">
                     {collection.name}
                 </h1>
-                <p className="text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-in">
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in">
                     {collection.description}
                 </p>
             </div>

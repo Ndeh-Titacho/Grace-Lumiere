@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom"
 import { useState } from "react"
-import logo from "@/assets/grace l .jpg"
+import logo from "@/assets/GL Logo wout text.jpg" 
 import { Button } from "@/Components/ui/button"
 import { ChevronDown, Heart,Menu, X } from "lucide-react"
 import { DropdownMenu,DropdownMenuTrigger,DropdownMenuContent,DropdownMenuItem } from "@/Components/ui/dropdown-menu"
@@ -23,9 +23,9 @@ export const NavBar = () => {
           <Link to="/" className="flex items-center group">
             <img 
               src={logo} 
-              sizes="100"
+              sizes="50px"
               alt="Grace Lumiere" 
-              className="h-20 sm:h-20 w-auto object-contain transition-smooth group-hover:opacity-80"
+              className="h-10 sm:h-12 w-auto object-contain transition-smooth group-hover:opacity-80"
             />
           </Link>
 

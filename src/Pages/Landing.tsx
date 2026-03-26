@@ -120,7 +120,7 @@ const getShortDescription = (text: string, wordLimit = 10) => {
 
 
   return (
-    <div className='min-h-screen font-roboto'>
+    <div className='min-h-screen font-antic font-extralight bg-background text-foreground '>
 
       {/* Hero Section  */}
       <section className='relative h-screen mt-20'>
@@ -140,17 +140,17 @@ const getShortDescription = (text: string, wordLimit = 10) => {
         {/* Hero Content */}
         <div className='relative h-full flex items-center justify-center text-center px-4'>
           <div className='max-w-4xl '>
-            <h1 className='text-5xl md:text-7xl font-roboto font-bold text-black mb-6 drop-shadow-lg'>
+            {/* <h1 className='text-5xl md:text-7xl font-roboto font-bold text-black mb-6 drop-shadow-lg'>
               {displaySlides[currentSlide]?.name}
-            </h1>
-            <p className='text-xl md:text-2xl text-black/80 mb-8 drop-shadow-md'>
+            </h1> */}
+            {/* <p className='text-xl md:text-2xl text-black/80 mb-8 drop-shadow-md'>
               {getShortDescription(displaySlides[currentSlide]?.description) }
-            </p>
+            </p> */}
             <div className='flex flex-col md:flex-row justify-center gap-2'>
               <Button
               size="lg"
               asChild
-              className=''
+              className='w-[300px]'
               >
                 <Link to="/bridal">Explore Bridal</Link>
               </Button>
@@ -158,7 +158,7 @@ const getShortDescription = (text: string, wordLimit = 10) => {
                 size="lg"
                 variant="outline"
                 asChild
-                className="border-white text-black  bg-white/10 backdrop-blur-sm font-medium"
+                className="w-[300px] border-white text-black  bg-white/10 backdrop-blur-sm font-medium"
               >
                 <Link to="/boutique">Shop Boutique</Link>
               </Button>
@@ -167,7 +167,7 @@ const getShortDescription = (text: string, wordLimit = 10) => {
         </div>
 
         {/* Navigation Arrows */}
-        <Button
+        {/* <Button
           variant="ghost"
           size="icon"
           className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white"
@@ -182,7 +182,7 @@ const getShortDescription = (text: string, wordLimit = 10) => {
           onClick={nextSlide}
         >
           <ChevronRight className="h-8 w-8" />
-        </Button>
+        </Button> */}
 
          {/* Slide Indicators */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
@@ -203,7 +203,7 @@ const getShortDescription = (text: string, wordLimit = 10) => {
            {/* Our Story */}
       <section className='py-20 container mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='max-w-3xl mx-auto text-center'>
-          <h1 className='text-4xl md:text-5xl font-semibold mb-6 animate-slide-up '>Our Story</h1>
+          <h1 className='text-4xl md:text-5xl font-light mb-6 animate-slide-up '>Our Story</h1>
           <p className='text-lg text-muted-foreground mb-6 leading-relaxed'>Grace Lumière is Cameroon's premier destination for exquisite bridal gowns and sophisticated boutique fashion. We believe every woman deserves to feel extraordinary, whether it's her wedding day or any special moment in life.</p>
           <p className='text-lg text-muted-foreground mb-6 leading-relaxed'>Our curated collections showcase the artistry of skilled designers, ensuring that each piece is a true reflection of elegance and grace.</p>
         </div>
@@ -213,7 +213,7 @@ const getShortDescription = (text: string, wordLimit = 10) => {
       {/* Featured Collections */}
       <section className="py-20 bg-muted">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-5xl font-semibold text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-light text-center mb-12">
             Featured Collections
           </h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
@@ -226,7 +226,7 @@ const getShortDescription = (text: string, wordLimit = 10) => {
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-primary/60 to-transparent flex items-end">
                   <div className="p-8 text-white">
-                    <h3 className="text-3xl font-semibold mb-2">Bridal Suite</h3>
+                    <h3 className="text-3xl font-extralight mb-2">Bridal Suite</h3>
                     <p className="text-white/90">Discover your dream wedding gown</p>
                   </div>
                 </div>
@@ -241,7 +241,7 @@ const getShortDescription = (text: string, wordLimit = 10) => {
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-primary/60 to-transparent flex items-end">
                   <div className="p-8 text-white">
-                    <h3 className="text-3xl font-semibold mb-2">Boutique Collection</h3>
+                    <h3 className="text-3xl font-extralight mb-2">Boutique Collection</h3>
                     <p className="text-white/90">Elegant ready-to-wear pieces</p>
                   </div>
                 </div>
@@ -253,7 +253,7 @@ const getShortDescription = (text: string, wordLimit = 10) => {
 
         {/* Testimonials */}
       <section className="py-20 container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl md:text-5xl  font-semibold text-center mb-12">
+        <h2 className="text-4xl md:text-5xl  font-light text-center mb-12">
           What Our Clients Say
         </h2>
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -268,7 +268,7 @@ const getShortDescription = (text: string, wordLimit = 10) => {
                 ))}
               </div>
               <p className="text-muted-foreground mb-4 italic">"{testimonial.review_text}"</p>
-              <p className="font-semibold">{testimonial.client_name}</p>
+              <p className="font-light">{testimonial.client_name}</p>
             </div>
           ))}
         </div>

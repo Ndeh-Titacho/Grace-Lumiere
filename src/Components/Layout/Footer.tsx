@@ -8,11 +8,11 @@ export const Footer = () => {
 
 
   return (
-    <footer className="bottom-0 left-0 right-0 bg-muted font-roboto">
+    <footer className="bottom-0 left-0 right-0 bg-muted font-antic font-extralight">
        {/* CTA Section */}
       <div className="bg-linear-to-r from-champagne/20 to-blush/20 py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl  font-semibold mb-4">
+          <h2 className="text-3xl md:text-4xl  font-light mb-4">
             Book A Consultation
           </h2>
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -34,12 +34,12 @@ export const Footer = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div >
-          <h1 className="font-semibold text-2xl mb-4">Grace Lumière</h1>
+          <h1 className="font-light text-2xl mb-4">Grace Lumière</h1>
           <p className="py-2 text-muted-foreground mb-4">Because the Moment is Yours.</p>
           <p className=" w-80 text-muted-foreground mb-4 text-sm">Cameroon's premier destination for exquisite bridal gowns and elegant boutique fashion.</p>
         </div>
         <div>
-          <h3 className="font-semibold text-xl mb-4">Quick Links</h3>
+          <h3 className="font-light text-xl mb-4">Quick Links</h3>
           <ul className="flex-col space-y-2">
             <li><Link to="/bridal" className="text-muted-foreground">Bridal Suite</Link></li>
             <li><Link to="/boutique" className="text-muted-foreground">Boutique Collections</Link></li>
@@ -47,7 +47,7 @@ export const Footer = () => {
           </ul>
         </div>
         <div>
-          <h3 className="font-semibold text-xl mb-4">Connect With Us</h3>
+          <h3 className="font-light text-xl mb-4">Connect With Us</h3>
           <div className="flex space-x-4">
             <Button
             variant="ghost"

@@ -1,5 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/Components/ui/card";
 import { Check,Download } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/Components/ui/button";
 import { useCollection } from "@/hooks/useCollection";
 import { toast } from "sonner";
@@ -101,12 +102,12 @@ export const Packages = () => {
   return (
     <div className="min-h-screen">
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 mt-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 mt-20 font-antic font-extralight">
             <div className="text-center mb-16">
-                <h1 className="text-5xl md:text-6xl font-roboto font-bold mb-6">
+                <h1 className="text-5xl md:text-6xl font-light mb-6">
                     Explore Our Packages
                 </h1>
-                <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
                      Discover our carefully curated packages designed to make your special moments unforgettable. 
             From bridal essentials to complete wardrobe transformations.
                 </p>
@@ -127,7 +128,7 @@ export const Packages = () => {
               )}
 
               <CardHeader>
-                <CardTitle className="text-3xl font-roboto">{pkg.name}</CardTitle>
+                <CardTitle className="text-3xl">{pkg.name}</CardTitle>
                 <CardDescription className="text-base">{pkg.description}</CardDescription>
                 <div className="pt-4">
                     <p className="text-4xl font-bold text-primary">{pkg.price}</p>
@@ -157,15 +158,17 @@ export const Packages = () => {
             </div>
 
              <div className="mt-16 text-center bg-muted rounded-lg p-8 max-w-4xl mx-auto">
-          <h3 className="text-2xl font-roboto font-semibold mb-4">
+          <h3 className="text-2xl font-light mb-4">
             Need a Custom Package?
           </h3>
-          <p className="text-muted-foreground mb-6">
+          <p className="text-muted-foreground mb-6 text-md">
             We can create a personalized package tailored to your specific needs and budget. 
             Contact us for a consultation.
           </p>
           <Button size="lg">
-            Book a Consultation
+            <Link to="/consultation" className="flex items-center">
+              Book a Consultation
+            </Link>
           </Button>
         </div>
         </div>

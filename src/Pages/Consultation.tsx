@@ -17,6 +17,7 @@ export const Consultation = () => {
     email: "",
     phone: "",
     eventDate: "",
+    budget: "",
     serviceType: "",
     notes: "",
   });
@@ -78,13 +79,13 @@ export const Consultation = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-scree font-antic font-extralight">
       
       <main className="pt-32 pb-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
           {/* Header */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-roboto font-bold mb-4">
+            <h1 className="text-4xl md:text-5xl font-light mb-4">
               Book A Consultation
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -208,6 +209,19 @@ export const Consultation = () => {
                         <option value="custom">Custom Design</option>
                         <option value="other">Other</option>
                       </select>
+                    </div>
+
+                     <div className="space-y-2">
+                      <Label htmlFor="phone">Estimated Budget *</Label>
+                      <Input
+                        id="budget"
+                        name="budget"
+                        type="tel"
+                        value={formData.budget}
+                        onChange={handleInputChange}
+                        placeholder="What is your estimated budget?"
+                        required
+                      />
                     </div>
 
                     <div className="space-y-2">

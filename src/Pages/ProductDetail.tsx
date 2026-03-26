@@ -51,7 +51,7 @@ export const ProductDetail = () => {
 
 
     return (
-        <div className="min-h-screen pb-12">
+        <div className="min-h-screen pb-12 font-antic font-extralight">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 mt-20 ">
                 <Button
                     variant="ghost"
@@ -104,7 +104,7 @@ export const ProductDetail = () => {
                 {/* Product Details */}
                 <div className="space-y-8">
                     <div>
-                        <h1 className="text-4xl md:text-5xl font-roboto font-bold mb-4">
+                        <h1 className="text-4xl md:text-5xl font-light mb-4">
                             {product.name}
                         </h1>
                         {/* <p className="text-sm text-muted-foreground mb-2">Product ID: {product.id}</p> */}
@@ -112,7 +112,7 @@ export const ProductDetail = () => {
 
                     <div>
                         <h3 className="text-lg font-semibold mb-3">Description</h3>
-                        <p className="text-muted-foreground leading-relaxed">{product.description}</p>
+                        <p className="text-muted-foreground leading-relaxed text-md md:text-lg">{product.description}</p>
                     </div>
 
                     <div className="grid grid-cols-2 gap-6">

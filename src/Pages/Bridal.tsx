@@ -5,6 +5,8 @@ import F004 from '@/assets/Fortitude Collection/CIC08993.jpg'
 import { useState, useEffect } from 'react'
 import { useCollection, type itemsType } from '@/hooks/useCollection'
 import { ProductCard } from '@/Components/ProductCard'
+import { Button } from '@/Components/ui/button'
+import { Link } from 'react-router-dom'
 
 
 
@@ -69,7 +71,27 @@ export const Bridal = () => {
             <div className='relative flex flex-col items-center justify-center h-full text-black'>
                 <h1 className='text-5xl md:text-7xl font-light drop-shadow-lg'>Bridal Suite</h1>
                 <p className='text-xl md:text-xl drop-shadow-lg'>Discover exquisite gowns for your special day</p>
+
+                 <div className='flex flex-col md:flex-row justify-center gap-2 mt-4'>
+                          <Button
+                          size="lg"
+                          asChild
+                          className='w-[300px]'
+                          >
+                            <Link to="/consultation">Book A Consultation</Link>
+                          </Button>
+                             <Button
+                            size="lg"
+                            variant="outline"
+                            asChild
+                            className="w-[300px] border-white text-black  bg-white/10 backdrop-blur-sm font-medium"
+                          >
+                            <Link to="/about#enquiry">Make Enquiries</Link>
+                          </Button>
+                        </div>
             </div>
+
+           
         </section>
 
 

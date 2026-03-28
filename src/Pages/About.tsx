@@ -1,8 +1,28 @@
 import { Heart,Users,Award } from "lucide-react"
 import { Link } from "react-router-dom"
+import { Button } from "@/Components/ui/button"
+import { Label } from "@/Components/ui/label"
+import { Input } from "@/Components/ui/input"
+import { Textarea } from "@/Components/ui/textarea"
+import { Send } from "lucide-react"
+import { toast } from "sonner"
+import {useForm, ValidationError } from '@formspree/react'
+import { useEffect } from "react"
 
 
 export const About = () => {
+
+    const [state, handleSubmit, reset] = useForm("meepobyb");
+
+    useEffect(() => {
+    if (state.succeeded) {
+        toast.success("Your enquiry has been sent successfully! We'll get back to you soon.");
+    }
+    if (state.errors && Object.keys(state.errors).length > 0) {
+        toast.error("There was an error sending your enquiry. Please try again later.");
+    }
+}, [state.succeeded, state.errors]);
+
   return (
     <div className="min-h-screen flex flex-col items-center pt-20 font-antic font-extralight">
       
@@ -65,21 +85,45 @@ export const About = () => {
           </div>
         </section>
 
-        {/* Contact Section */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8">
-          <div className="container mx-auto max-w-4xl text-center">
-            <h2 className="text-3xl font-light text-foreground mb-6">
-              Visit Us
+        {/* Enquiries Section */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8" id="enquiry">
+          <div className="container mx-auto max-w-2xl">
+            <h2 className="text-3xl font-serif font-semibold text-foreground mb-6 text-center">
+              Make an Enquiry
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              We would love to meet you and help you find the perfect dress for your special occasion.
+            <p className="text-lg text-muted-foreground mb-8 text-center">
+              Have a question or want to learn more? Send us a message and we'll get back to you.
             </p>
-            <div className="space-y-2 text-muted-foreground">
-              <p>WhatsApp: +237 6 79 06 91 07</p>
-              <Link to="/appointment" className="underline" onClick={() => { window.open("https://wa.me/237679069107","_blank")}}>
-                Open by appointment
-              </Link>
-            </div>
+            <form onSubmit={handleSubmit}
+              className="space-y-5"
+            >
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Name</Label>
+                  <Input id="name" type="text" name="name" required placeholder="Your name"  />
+                  <ValidationError prefix="Name" field="name" errors={state.errors} className="text-sm text-red-500 mt-1" />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email</Label>
+                  <Input id="email" type="email" name="email" required placeholder="Your email"  />
+                  <ValidationError prefix="Email" field="email" errors={state.errors} className="text-sm text-red-500 mt-1" />
+                </div>
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="subject">Subject</Label>
+                <Input id="subject" type="text" name="enquiry_subject" required placeholder="What is your enquiry about?"  />
+                <ValidationError prefix="Subject" field="enquiry_subject" errors={state.errors} className="text-sm text-red-500 mt-1" />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="message">Message</Label>
+                <Textarea id="message" name="message" required rows={5} placeholder="Tell us more..."  />
+                <ValidationError prefix="Message" field="message" errors={state.errors} className="text-sm text-red-500 mt-1" />
+              </div>
+              
+              <Button type="submit" disabled={state.submitting} className="w-full" size="lg">
+                <Send className="h-4 w-4 mr-2" /> Send Enquiry
+              </Button>
+            </form>
           </div>
         </section>
    

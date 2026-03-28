@@ -1,4 +1,4 @@
-import { Routes, Route} from 'react-router-dom'
+import {Routes, Route} from 'react-router-dom'
   import { OutletLayout } from './Components/Layout/OutletLayout'
   import { Landing } from './Pages/Landing'
   import { About } from './Pages/About'
@@ -9,6 +9,7 @@ import { Routes, Route} from 'react-router-dom'
   import { Packages } from './Pages/Packages'
   import { Consultation } from './Pages/Consultation'
  import { Toaster } from './Components/ui/sonner'
+ import { ScrollToTop } from './Components/ScrollToTop'
 
 
   function App() {
@@ -16,6 +17,7 @@ import { Routes, Route} from 'react-router-dom'
 
     return (
       <>
+      <ScrollToTop/>
       <Routes>
           <Route element={<OutletLayout />}>
             <Route path='/' element={<Landing />} />

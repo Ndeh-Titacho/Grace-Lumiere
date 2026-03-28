@@ -125,6 +125,24 @@ export const NavBar = () => {
               />
             </Link>
 
+            {/* Book a Consultation Button  */}
+
+            <Link
+              to="/Consultation"
+              className={`text-sm font-medium transition-smooth relative group ${
+                isActive("/Consultation")
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              Book a Consultation
+              <span
+                className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-smooth ${
+                  isActive("/Consultation") ? "w-full" : "w-0 group-hover:w-full"
+                }`}
+              />
+            </Link>
+
             <Link
               to="/packages"
               className={`text-sm font-medium transition-smooth relative group ${

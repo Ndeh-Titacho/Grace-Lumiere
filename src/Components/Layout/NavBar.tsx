@@ -253,6 +253,20 @@ export const NavBar = () => {
                 About
               </Link>
 
+               {/* Book a Consultation Button  */}
+
+             <Link
+                to="/Consultation"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`text-base font-medium transition-smooth px-4 py-2 rounded-lg ${
+                  isActive("/Consultation")
+                    ? "text-primary bg-primary/10"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                }`}
+              >
+                Book a Consultation
+              </Link>
+
               <Link
                 to="/packages"
                 onClick={() => setMobileMenuOpen(false)}

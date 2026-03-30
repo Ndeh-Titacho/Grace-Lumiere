@@ -57,11 +57,13 @@ export const Bridal = () => {
 
                     <div 
                     key={index}
-                    className={`absolute inset-0  transition-opacity duration-1000 ${currentSlide === index ? 'opacity-100' : 'opacity-0'}`}>
+                    className={`absolute inset-0 transition-opacity duration-1000 ${currentSlide === index ? 'opacity-100' : 'opacity-0'}`}>
                         <img 
                         src={slides.image} 
                         alt={slides.title}
                         className='w-full h-full object-cover' />
+                    <div className="absolute inset-0 hero-overlay bg-linear-to-t from-black/80 to-transparent flex items-end" />
+
                     </div>
                 ))}
             </div>
@@ -70,7 +72,7 @@ export const Bridal = () => {
             {/* Hero Content */}
             <div className='relative flex flex-col items-center justify-center h-full text-black'>
                 <h1 className='text-5xl md:text-7xl font-light drop-shadow-lg'>Bridal Suite</h1>
-                <p className='text-xl md:text-xl drop-shadow-lg'>Discover exquisite gowns for your special day</p>
+                <p className='text-xl md:text-xl drop-shadow-lg text-center'>Discover exquisite gowns for your special day</p>
 
                  <div className='flex flex-col md:flex-row justify-center gap-2 mt-4'>
                           <Button

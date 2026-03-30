@@ -132,7 +132,7 @@ const getShortDescription = (text: string, wordLimit = 10) => {
             >
           
             <img src={slide.images?.[0] ?? F001} alt={slide.name} className='w-full h-full object-cover' />
-            <div className="absolute inset-0 hero-overlay" />
+            <div className="absolute inset-0 hero-overlay bg-linear-to-t from-black/80 to-transparent flex items-end" />
             </div>
           ))}
         </div>

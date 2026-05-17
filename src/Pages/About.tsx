@@ -32,11 +32,13 @@ export const About = () => {
       </section>
 
       <section className="w-full max-w-4xl text-left py-4 px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-light items-start ">Our Story</h1>
-        <p className="text-muted-foreground mb-4 text-lg">Grace Lumiere was born from a passion for celebrating the beauty and elegance of African women. <br />
-        Founded with a vision to provide exquisite bridal and evening wear, we understand that every moment deserves to be memorable.</p>
+        <h1 className="text-3xl font-light items-start ">Our Process</h1>
+        <p className="text-muted-foreground mb-4 text-lg">Your journey with Grace Lumière begins with a personal consultation centered entirely on
+you, the bride. In this warm, intentional moment, we listen to your story, vision, and your
+dream gown.</p>
 
-        <p className="text-muted-foreground mb-4 text-lg" >Our boutique specializes in curating collections that blend contemporary fashion with timeless elegance. From breathtaking bridal gowns to stunning evening dresses, each piece is carefully selected to make you feel confident and beautiful.</p>
+        <p className="text-muted-foreground mb-4 text-lg" >We then translate your ideas into a bespoke design created to give you confidence as you walk
+down the aisle.</p>
       </section>
 
       {/* Values Section */}

@@ -4,8 +4,10 @@ import { Button } from "@/Components/ui/button"
 import { Label } from "@/Components/ui/label"
 import { Input } from "@/Components/ui/input"
 import { Textarea } from "@/Components/ui/textarea"
+import Lulu from "@/assets/Lulu.jpeg"
 import { Send } from "lucide-react"
 import { toast } from "sonner"
+
 import {useForm, ValidationError } from '@formspree/react'
 import { useEffect } from "react"
 
@@ -24,22 +26,100 @@ export const About = () => {
 }, [state.succeeded, state.errors]);
 
   return (
-    <div className="min-h-screen flex flex-col items-center pt-20 font-antic font-extralight">
+    <div className="min-h-screen flex flex-col items-center  pt-20 font-antic font-extralight">
+
       
-      <section className="max-w-3xl text-center py-16 px-4 sm:px-6 lg:px-8 bg-gradient-subtle">
-        <h1 className="text-5xl font-light">About  Grace Lumière</h1>
-        <p className="py-2 text-muted-foreground mb-4 text-xl">Because the Moment is Yours.</p>
-      </section>
+                {/* Hero / About Section */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-subtle">
+          <h1 className="text-4xl sm:text-5xl font-serif font-bold text-foreground  mb-10 text-center ">
+              About Grace Lumière
+            </h1>
+          
+          <div className="container mx-auto max-w-6xl">
+           
+            <div className="grid lg:grid-cols-2 gap-10 items-start">
+              <div className="space-y-5 text-muted-foreground leading-relaxed order-2 lg:order-1">
+              <p>
+                Grace Lumière, founded by Cameroonian designer Engoh L. Fondoh, is a women's fashion brand
+                dedicated to creating timeless, elegant pieces that allow every woman to step into her most
+                confident and radiant self. Rooted in emotion, culture, and personal storytelling, the brand
+                transforms fashion into an intimate expression of identity and beauty.
+              </p>
+              <p>
+                Engoh grew up in a world softly shaped by the hum of a sewing machine and the loving presence
+                of her grandmother, whose hands carried the art of craftsmanship. As a child, she sat beside
+                her, learning simple stitches and unknowingly absorbing the language of creation. What began
+                as childhood curiosity soon became the foundation of her creative destiny.
+              </p>
+              <p>
+                Though she once imagined a future in science, dreaming of medicine or engineering, fashion
+                slowly revealed itself through her evolving relationship with clothing. Each garment became
+                more than fabric—it became expression, emotion, and identity. This quiet realization sparked
+                her first creation: a handmade Ankara dress, imperfect yet deeply personal, marking the
+                beginning of her journey into design.
+              </p>
+              <p>
+                As her passion grew, so did her commitment to mastering the art. She explored textiles,
+                sketching, draping, and pattern making, embracing mistakes as part of her learning.
+                Eventually, she took a bold step into formal fashion education, where she found a creative
+                community that helped shape her voice as a designer.
+              </p>
+              <p>
+                Her journey expanded beyond the classroom, with experiences across West Africa that deepened
+                her understanding of fashion as culture. From the vibrant energy of Lagos, where she studied
+                pattern drafting and explored bridal fabrics at Yaba market, to the creative spirit of Ghana,
+                where she participated in fashion shows and connected with leading designers, each experience
+                strengthened her vision and purpose.
+              </p>
+              <p>
+                These moments taught her that fashion is more than design—it is movement, culture, and
+                connection. It is the courage to evolve, to trust instinct, and to grow through experience.
+              </p>
+              <p>
+                Today, Grace Lumière is built on that foundation: emotion, heritage, and transformation.
+                Each piece is created to work with the female form, enhancing natural beauty rather than
+                concealing it. At its core, the brand believes that a woman's inner essence should be
+                reflected outwardly—because true elegance is not created, it is revealed.
+              </p>
+              <p className="font-medium text-foreground">
+                Grace Lumière is not just fashion. It is story, identity, and light.
+              </p>
+              </div>
+              <div className="order-1 lg:order-2 lg:sticky lg:top-24">
+                <img
+                  src={Lulu}
+                  alt="Grace Lumière"
+                  className="w-full h-auto rounded-lg shadow-elegant"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
 
-      <section className="w-full max-w-4xl text-left py-4 px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-light items-start ">Our Process</h1>
-        <p className="text-muted-foreground mb-4 text-lg">Your journey with Grace Lumière begins with a personal consultation centered entirely on
-you, the bride. In this warm, intentional moment, we listen to your story, vision, and your
-dream gown.</p>
 
-        <p className="text-muted-foreground mb-4 text-lg" >We then translate your ideas into a bespoke design created to give you confidence as you walk
-down the aisle.</p>
-      </section>
+         {/* Our Process Section */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8">
+          <div className="container mx-auto max-w-4xl">
+            <h2 className="text-3xl font-serif font-semibold text-foreground mb-6 text-center">
+              Our Process
+            </h2>
+            <div className="space-y-4 text-muted-foreground leading-relaxed">
+              <p>
+                Your journey with Grace Lumière begins with a personal consultation centered entirely on
+                you—the bride. In this warm, intentional moment, we listen to your story, vision, and your
+                dream gown.
+              </p>
+              <p>
+                We then translate your ideas into a bespoke design created to give you confidence as you
+                walk down the aisle.
+              </p>
+              <p>
+                From the first sketch to the final fitting, every step is handled with care and artistry,
+                ensuring your gown reflects you and your love story.
+              </p>
+            </div>
+          </div>
+        </section>
 
       {/* Values Section */}
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">

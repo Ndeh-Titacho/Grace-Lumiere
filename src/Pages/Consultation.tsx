@@ -323,7 +323,7 @@ export const Consultation = () => {
                       </label>
                     </div>
                     <div className="mt-4 p-3 rounded-md bg-muted/50 text-sm text-muted-foreground flex items-start gap-2">
-                      <Info className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                      <Info className="h-4 w-4 mt-0.5 shrink-0" />
                       <span>Consultation fees are applied per dress and will be deducted from the final cost of each piece created with Grace Lumière.</span>
                     </div>
                   </div>
@@ -565,7 +565,7 @@ export const Consultation = () => {
 
             {/* Payment Methods Sidebar */}
             <div className="lg:col-span-1 space-y-6">
-              <Card className="border-primary/20 bg-gradient-to-br from-champagne/10 to-blush/10">
+              <Card className="border-primary/20 bg-linear-to-br from-champagne/10 to-blush/10">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <DollarSign className="h-5 w-5 text-primary" />

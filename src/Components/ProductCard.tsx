@@ -34,7 +34,7 @@ export const ProductCard = ({item} : ProductCardProps) => {
             alt={item.name}
             className="w-full h-full  group-hover:scale-110 transition-smooth" />
             
-            <Button 
+            {/* <Button 
             variant="ghost"
             size="icon"
             onClick={handleLikeClick}
@@ -42,7 +42,7 @@ export const ProductCard = ({item} : ProductCardProps) => {
             isLiked ? "text-red-500" : "text-muted-foreground"
           }`}>
             <Heart className={ isLiked ? "fill-current" : "" } />
-            </Button>
+            </Button> */}
             
         </div>
         <div className="p-6">

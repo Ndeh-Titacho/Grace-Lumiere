@@ -69,7 +69,7 @@ export const Footer = () => {
               variant="ghost"
               size="icon"
               className="hover:bg-primary/10 hover:text-primary"
-              onClick={() => window.open("https://www.tiktok.com/@grace.lumiere24?_r=1&_t=ZM-91sViHNsAjA","_blank")}>
+              onClick={() => window.open("https://www.tiktok.com/search?q=grace%20lumiere%20bridals&t=1790425459257","_blank")}>
               <MessageCircle className="h-5 w-5"/>
             </Button>
           </div>

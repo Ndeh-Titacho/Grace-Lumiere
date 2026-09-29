@@ -9,10 +9,13 @@ export interface CollectionContextType {
     bridalProducts: itemsType[];             // changed: always array
     boutiqueProducts: itemsType[];  
     bridalCollections: CollectionsList[];   // changed: always array
-    boutiqueCollections: CollectionsList[]; 
+    boutiqueCollections: CollectionsList[];
+    eventPhotos: itemsType[];                // changed: always array
+    eventPhotoCollections: CollectionsList[];
     packages: packagesType[]; 
     testimonials: testimonialsType[];  // changed: always array
-}
+} 
+
 
 export interface CollectionsList {
     id: string;
@@ -80,10 +83,12 @@ export const CollectionProvider = ({ children }: { children: React.ReactNode }) 
 
     const bridalProducts = items.filter(item => item.category === 'bridal'); 
     const boutiqueProducts = items.filter(item => item.category === 'boutique');
+    const eventPhotos = items.filter(item => item.category === 'After event');
 
     // Use case-insensitive `includes` to match "Bridal", "Bridal Suite", "bridal" etc.
     const bridalCollections = collections.filter(col => col.is_active && (col.suite_name ?? "").toLowerCase().includes("bridal"));
     const boutiqueCollections = collections.filter(col => col.is_active && (col.suite_name ?? "").toLowerCase().includes("boutique"));
+    const eventPhotoCollections = collections.filter(col => col.is_active && (col.suite_name ?? "").toLowerCase().includes("After event"));
 
     useEffect(() => {
         getCollections();
@@ -175,13 +180,13 @@ export const CollectionProvider = ({ children }: { children: React.ReactNode }) 
         .replace(/\s+/g, "-"); // replace spaces with hyphens
 
 return (
-    <CollectionContext.Provider value={{ collections,items, bridalProducts, boutiqueProducts, bridalCollections, boutiqueCollections, packages, testimonials, isLoading, error }}>
+    <CollectionContext.Provider value={{ collections,items, bridalProducts, boutiqueProducts, bridalCollections, boutiqueCollections, packages, testimonials, isLoading, error, eventPhotos, eventPhotoCollections }}>
         {children}
     </CollectionContext.Provider>
 )
 }
 
-export const useCollection = () => {
+export const    useCollection = () => {
     const context = useContext(CollectionContext);
     if (context === undefined) {
         throw new Error('useCollection must be used within a CollectionProvider');

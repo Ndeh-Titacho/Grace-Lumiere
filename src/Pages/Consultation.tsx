@@ -219,9 +219,9 @@ export const Consultation = () => {
       id: "bank",
       name: "Bank Transfer",
       details: {
-        bankName: "Afriland First Bank",
-        accountName: "Elegance Bridal SARL",
-        accountNumber: "10002 12345 67890 12",
+        bankName: "Afriland First Bank Cameroon",
+        accountName: "GRACE LUMIÈRE LTD",
+        accountNumber: " 10005 00007 00000148248 08",
       },
     },
   ];
@@ -229,7 +229,7 @@ export const Consultation = () => {
 
  
 
-  const consultationFeeDisplay = formData.consultationType === "physical" ? "35,000 XAF" : "25,000 XAF";
+  const consultationFeeDisplay = formData.consultationType === "physical" ? "25,000 XAF" : "15,000 XAF";
 
   return (
     <div className="min-h-screen">
@@ -281,20 +281,20 @@ export const Consultation = () => {
                     </div>
                   </div>
 
-                  {/* Section 2: Wedding Details */}
+                  {/* Section 2: Event Details */}
                   <div>
-                    <h2 className="text-xl font-serif font-semibold mb-4 text-primary">Wedding Details</h2>
+                    <h2 className="text-xl font-serif font-semibold mb-4 text-primary">Event Details</h2>
                     <Separator className="mb-6" />
                     <div className="space-y-4">
                       <div className="space-y-2">
-                        <Label htmlFor="weddingDate">Wedding Date</Label>
+                        <Label htmlFor="weddingDate">Event Date</Label>
                         <Input id="weddingDate" name="weddingDate" type="date" value={formData.weddingDate} onChange={handleInputChange} />
-                        <ValidationError prefix="Wedding Date" field="weddingDate" errors={state.errors} className="text-sm text-red-500 mt-1" />
+                        <ValidationError prefix="Event Date" field="weddingDate" errors={state.errors} className="text-sm text-red-500 mt-1" />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="weddingLocation">Wedding Location</Label>
-                        <Input id="weddingLocation" name="weddingLocation" value={formData.weddingLocation} onChange={handleInputChange} placeholder="Enter wedding venue / city" />
-                        <ValidationError prefix="Wedding Location" field="weddingLocation" errors={state.errors} className="text-sm text-red-500 mt-1" />
+                        <Label htmlFor="weddingLocation">Event Location</Label>
+                        <Input id="weddingLocation" name="weddingLocation" value={formData.weddingLocation} onChange={handleInputChange} placeholder="Enter event venue / city" />
+                        <ValidationError prefix="Event Location" field="weddingLocation" errors={state.errors} className="text-sm text-red-500 mt-1" />
                       </div>
                     </div>
                   </div>
@@ -309,7 +309,7 @@ export const Consultation = () => {
                         <input type="radio" name="consultationType" value="virtual" checked={formData.consultationType === "virtual"} onChange={handleInputChange} className="mt-1" />
                         <div>
                           <span className="font-medium">Virtual Consultation (Online)</span>
-                          <span className="block text-sm text-muted-foreground">25,000 XAF / Hour</span>
+                          <span className="block text-sm text-muted-foreground">15,000 XAF / Hour</span>
                         </div>
                         <ValidationError prefix="Consultation Type" field="consultationType" errors={state.errors} className="text-sm text-red-500 mt-1" />
                       </label>
@@ -317,7 +317,7 @@ export const Consultation = () => {
                         <input type="radio" name="consultationType" value="physical" checked={formData.consultationType === "physical"} onChange={handleInputChange} className="mt-1" />
                         <div>
                           <span className="font-medium">Physical Consultation (In-Studio)</span>
-                          <span className="block text-sm text-muted-foreground">35,000 XAF / Hour</span>
+                          <span className="block text-sm text-muted-foreground">25,000 XAF / Hour</span>
                         </div>
                         <ValidationError prefix="Consultation Type" field="consultationType" errors={state.errors} className="text-sm text-red-500 mt-1" />
                       </label>

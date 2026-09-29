@@ -160,12 +160,12 @@ export const NavBar = () => {
             </Link>
 
           {/* Like heart icon  */}
-            <Button variant="ghost" size="icon" className="relative">
+            {/* <Button variant="ghost" size="icon" className="relative">
               <Heart className="h-5 w-5" />
               <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-primary text-primary-foreground text-xs flex items-center justify-center">
                 0
               </span>
-            </Button>
+            </Button> */}
           </div>
 
           {/* Mobile Menu Button */}
